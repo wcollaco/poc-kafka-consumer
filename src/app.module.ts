@@ -7,18 +7,8 @@ import { CronjobService } from './cronjob/cronjob.service';
 
 @Module({
   imports:  [
-    ScheduleModule.forRoot(),
-    ClientsModule.register([
-      {
-        name: 'KAFKA_SERVICE',
-        transport: Transport.KAFKA,
-        options: {
-          client: {
-            brokers: ['host.docker.internal:9094'],
-          }       
-        }
-      }
-    ])],
+    ScheduleModule.forRoot()
+    ],
   controllers: [AppController],
   providers: [AppService, CronjobService],
 })
